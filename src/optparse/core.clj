@@ -1,6 +1,6 @@
 (ns optparse.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn optparse
+  "Parse options, returns array with hash of named arguments, 
+   array of the rest of the arguments, and usage message"
+  [])
