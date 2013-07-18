@@ -10,7 +10,17 @@
     (is (= {:verbose true} (optparse ["--verbose"]
                                      ["-v" "--verbose"])))))
 
-; (testing "handling default values for flags not passed in"
+; (testing "handling default values for arguments not passed in"
 ;   (deftest should-return-default-value-when-no-flag
 ;     (is (= {:number 5} (optparse []
 ;                                  ["-n" "--number=[value]" :default 5])))))
+
+(testing "map-keys"
+  (deftest should-add-true-value-to-each-key
+    (is (= {:verbose true} (map-keys ["--verbose"] 
+                                     '(["-v" "--verbose"])))))
+
+  (deftest should-add-true-value-to-each-short-form-key
+    (is (= {:help true, :verbose true} (map-keys ["--help", "-v"]
+                                                 '(["-h" "--help"]
+                                                   ["-v" "--verbose"]))))))
