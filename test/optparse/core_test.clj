@@ -17,7 +17,7 @@
                                                    ["-h" "--help"]
                                                    ["-v" "--verbose"])))))
 
-; (testing "handling default values for arguments not passed in"
-;   (deftest should-return-default-value-when-no-flag
-;     (is (= {:number 5} (optparse []
-;                                  ["-n" "--number=[value]" :default 5])))))
+(testing "handling default values for arguments not passed in"
+  (deftest should-return-default-value-when-no-flag
+    (is (= {:number 5} (optparse []
+                                 ["-n" "--number=[value]" :default 5])))))
