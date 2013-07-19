@@ -25,7 +25,7 @@
     (fn [potential-key] 
       (contains? flags potential-key))))
 
-(defn map-keys [values expectations]
+(defn- map-keys [values expectations]
   (let [key-checker (build-key-checker expectations)
         key-creator (build-key-creator expectations)]
     (apply hash-map
@@ -34,18 +34,8 @@
           (map key-creator
             (filter key-checker values)))))))
 
-(defn- mappify [values expectations]
-  (map-keys values expectations))
-  ; (let [keys (filter #(     (re-matches #"-" (nth % 1)))  values)
-  ;       vals (filter #((not (re-matches #"-" (second %)))) values)]
-  ;   (zipmap keys vals)))
-
-; (defn- merge-defaults [args default-values]
-;   (default-values ))
-
 (defn optparse
   "Parse options, returns array with hash of named arguments, 
    array of the rest of the arguments, and usage message"
   ([args & expectations]
-    (mappify args expectations)))
-    ; (hash-map (create-key (first args)) true)))
+    (map-keys args expectations)))
