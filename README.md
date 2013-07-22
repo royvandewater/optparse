@@ -10,4 +10,4 @@ FIXME
 
 Copyright © 2013 Roy van de Water
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the [The MIT License (MIT)](http://opensource.org/licenses/MIT)
